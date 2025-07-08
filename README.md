@@ -2,8 +2,9 @@
 
 A modern, cloud-native D&D campaign organizer for Dungeon Masters and players, featuring:
 - **React** frontend
-- **Node.js** microservices
+- **Node.js** microservices (REST and/or GraphQL API)
 - **AI integration** (Ollama)
+- **GraphQL API** for flexible data access
 - **Discord bot** for player/world interaction
 - **Azure** cloud services
 - **Kubernetes** orchestration
@@ -38,10 +39,12 @@ graph TD
     AI["AI Functions"]
   end
   FE-->|"REST/gRPC"|API
-  API-->|"DB"|CosmosDB
-  API-->|"Blob"|Storage
-  BOT-->|"Discord API"|Discord
-  AI-->|"Ollama"|Ollama
+  FE-->|"GraphQL"|GQL["GraphQL API"]
+  BOT-->|"GraphQL"|GQL
+  GQL-->|"DB"|CosmosDB
+  GQL-->|"Blob"|Storage
+  GQL-->|"AI"|AI
+  GQL-->|"REST/gRPC"|API
   AKS-->|"Hosts"|FE
   AKS-->|"Hosts"|API
   AKS-->|"Hosts"|BOT
@@ -73,9 +76,43 @@ sequenceDiagram
 
 ---
 
+## GraphQL in This Project
+
+This project supports GraphQL as a flexible API layer for both the frontend and Discord bot. GraphQL enables clients to request exactly the data they need, making it ideal for complex, nested D&D campaign data.
+
+**Key Points:**
+- The GraphQL API can be implemented in Node.js using your preferred server (e.g., Apollo Server, Yoga, etc.).
+- The GraphQL server acts as a gateway, aggregating data from microservices (AI, storage, etc.) and databases.
+- Both the React frontend and Discord bot can use GraphQL queries and mutations.
+- GraphQL is containerized and deployed to Kubernetes like other services.
+
+**Example Schema (for illustration):**
+```graphql
+type Campaign {
+  id: ID!
+  name: String!
+  sessions: [Session!]!
+  npcs: [NPC!]!
+}
+type Query {
+  campaigns: [Campaign!]!
+  campaign(id: ID!): Campaign
+}
+type Mutation {
+  createCampaign(name: String!): Campaign
+}
+```
+
+**Benefits:**
+- Flexible, strongly-typed API for all clients
+- Single endpoint for complex, nested data
+- Easy integration with microservices and AI features
+
+---
+
 ## Tech Stack
 - **Frontend**: React, TypeScript, Material-UI/Chakra UI
-- **Backend/API**: Node.js, Express
+- **Backend/API**: Node.js, Express, GraphQL (Apollo Server/Yoga/etc.)
 - **AI Service**: Node.js, Ollama API
 - **Discord Bot**: Node.js, discord.js
 - **Database**: Azure Cosmos DB
