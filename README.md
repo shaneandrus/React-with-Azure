@@ -124,16 +124,16 @@ type Mutation {
 
 ## Roadmap
 
-1. **Plan the Architecture**
-2. **Set Up Monorepo** (Turborepo/Nx)
-3. **Scaffold Services** (frontend, backend, bot, AI)
-4. **Dockerize Each Service**
-5. **Write Kubernetes Manifests**
-6. **Set Up Azure Resources** (AKS, ACR, Cosmos DB, Storage)
-7. **Set Up CI/CD**
-8. **Implement Core Features**
-9. **Secure and Configure** (Secrets, ConfigMaps, Auth)
-10. **Test and Iterate**
+- [x] **1. Plan the Architecture**
+- [ ] 2. Set Up Monorepo (Turborepo/Nx)
+- [ ] 3. Scaffold Services (frontend, backend, bot, AI)
+- [ ] 4. Dockerize Each Service
+- [ ] 5. Write Kubernetes Manifests
+- [ ] 6. Set Up Azure Resources (AKS, ACR, Cosmos DB, Storage)
+- [ ] 7. Set Up CI/CD
+- [ ] 8. Implement Core Features
+- [ ] 9. Secure and Configure (Secrets, ConfigMaps, Auth)
+- [ ] 10. Test and Iterate
 
 ---
 
