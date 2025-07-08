@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "turbo": "^2.5.4"
+  },
+  "name": "react-with-azure",
+  "version": "1.0.0",
+  "description": "A modern, cloud-native D&D campaign organizer for Dungeon Masters and players, featuring:\r - **React** frontend\r - **Node.js** microservices (REST and/or GraphQL API)\r - **AI integration** (Ollama)\r - **GraphQL API** for flexible data access\r - **Discord bot** for player/world interaction\r - **Azure** cloud services\r - **Kubernetes** orchestration",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaneandrus/React-with-Azure.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/shaneandrus/React-with-Azure/issues"
+  },
+  "homepage": "https://github.com/shaneandrus/React-with-Azure#readme",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "private": true,
+  "packageManager": "npm@11.4.2"
+}

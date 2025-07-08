@@ -125,7 +125,7 @@ type Mutation {
 ## Roadmap
 
 - [x] **1. Plan the Architecture**
-- [ ] 2. Set Up Monorepo (Turborepo/Nx)
+- [x] 2. Set Up Monorepo (Turborepo/Nx)
 - [ ] 3. Scaffold Services (frontend, backend, bot, AI)
 - [ ] 4. Dockerize Each Service
 - [ ] 5. Write Kubernetes Manifests
