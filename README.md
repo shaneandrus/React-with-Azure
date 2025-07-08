@@ -174,3 +174,20 @@ Pull requests and suggestions welcome! Please open an issue to discuss your idea
 
 ## License
 MIT 
+
+---
+
+## Finalized Architecture Decisions
+
+| Area                | Choice/Tool           | Notes |
+|---------------------|----------------------|-------|
+| GraphQL Server      | Apollo Server        | Popular, TypeScript-friendly |
+| Authentication      | Azure AD             | Native Azure integration |
+| Database            | Azure Cosmos DB      | Scalable, NoSQL, Azure-native |
+| Event-Driven        | Add later            | Start with REST/GraphQL |
+| API Gateway/Ingress | Basic K8s Ingress    | Upgrade as needed |
+| CI/CD               | GitHub Actions       | Simple, integrates with GitHub |
+| UI Library          | Material-UI          | Popular React UI library |
+| Other Enhancements  | Add later            | Service mesh, caching, etc. |
+
+These decisions provide a solid, scalable foundation for the project. Optional enhancements (event-driven, service mesh, caching, multi-tenancy, etc.) can be added as the project grows. 
