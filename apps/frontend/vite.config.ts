@@ -13,5 +13,20 @@ export default defineConfig({
   },
   optimizeDeps: {
     exclude: ['@vitejs/plugin-react']
+  },
+  build: {
+    // Ensure compatibility with Node.js 18+ and Docker
+    target: 'esnext',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom']
+        }
+      }
+    }
+  },
+  define: {
+    // Fix for crypto.hash issue in older Node.js versions
+    global: 'globalThis'
   }
 })

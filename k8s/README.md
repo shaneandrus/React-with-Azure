@@ -240,7 +240,7 @@ kubectl port-forward svc/api-service 4000:4000 -n dnd-campaign-organizer
 ## 🚀 Next Steps
 
 1. **Set up Azure Resources**
-   - Create AKS cluster
+   - Create AKS cl uster
    - Set up Azure Container Registry
    - Configure Azure Key Vault
 
