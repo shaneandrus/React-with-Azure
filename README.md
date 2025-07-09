@@ -126,7 +126,7 @@ type Mutation {
 
 - [x] **1. Plan the Architecture**
 - [x] 2. Set Up Monorepo (Turborepo/Nx)
-- [ ] 3. Scaffold Services (frontend, backend, bot, AI)
+- [x] 3. Scaffold Services (frontend, backend, bot, AI)
 - [ ] 4. Dockerize Each Service
 - [ ] 5. Write Kubernetes Manifests
 - [ ] 6. Set Up Azure Resources (AKS, ACR, Cosmos DB, Storage)

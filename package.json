@@ -1,31 +1,23 @@
 {
-  "dependencies": {
-    "turbo": "^2.5.4"
-  },
-  "name": "react-with-azure",
-  "version": "1.0.0",
-  "description": "A modern, cloud-native D&D campaign organizer for Dungeon Masters and players, featuring:\r - **React** frontend\r - **Node.js** microservices (REST and/or GraphQL API)\r - **AI integration** (Ollama)\r - **GraphQL API** for flexible data access\r - **Discord bot** for player/world interaction\r - **Azure** cloud services\r - **Kubernetes** orchestration",
-  "main": "index.js",
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shaneandrus/React-with-Azure.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/shaneandrus/React-with-Azure/issues"
-  },
-  "homepage": "https://github.com/shaneandrus/React-with-Azure#readme",
+  "name": "your-project-name",
+  "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
-  "private": true,
-  "packageManager": "npm@11.4.2"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "packageManager": "npm@9.6.7",
+  "overrides": {
+    "@types/express": "^4.17.21",
+    "@types/express-serve-static-core": "^4.17.37"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.12.2",
+    "express": "^4.21.2",
+    "graphql": "^16.11.0",
+    "graphql-playground-middleware-express": "^1.7.23",
+    "graphql-tag": "^2.12.6"
+  }
 }
