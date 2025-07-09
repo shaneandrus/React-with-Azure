@@ -45,7 +45,7 @@ async function startServer() {
   // Add playground route
   app.get("/playground", playground({ endpoint: "/graphql" }));
 
-  const PORT = process.env.PORT || 4001;
+  const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {
     console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
     console.log(`🔗 Playground at http://localhost:${PORT}/playground`);

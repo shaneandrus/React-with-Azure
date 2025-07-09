@@ -155,15 +155,53 @@ type Mutation {
 
 ---
 
-## Setup Instructions
+## Quick Start
 
-1. **Clone the repo and install dependencies**
-2. **Set up Azure resources** (AKS, ACR, Cosmos DB, Storage)
-3. **Configure environment variables and secrets**
-4. **Build and push Docker images**
-5. **Deploy to AKS using Kubernetes manifests**
-6. **Set up Discord bot and connect to your server**
-7. **Start building your campaign!**
+### Running All Services Locally
+
+1. **Clone the repo and install dependencies:**
+   ```bash
+   git clone <your-repo-url>
+   cd "React with Azure"
+   npm install
+   ```
+
+2. **Set up environment variables:**
+   - Create `apps/api/.env` with your API configuration
+   - Create `apps/discord-bot/.env` with your Discord bot token
+
+3. **Start all services:**
+   ```bash
+   # Option 1: Using npm script
+   npm run dev:all
+   
+   # Option 2: Using PowerShell script
+   .\scripts\start-all.ps1
+   
+   # Option 3: Double-click the batch file
+   start-all.bat
+   ```
+
+4. **Access the services:**
+   - Frontend: http://localhost:5173
+   - API: http://localhost:4000
+   - GraphQL Playground: http://localhost:4000/graphql
+   - Discord Bot: Running and responding to `!ping`
+
+### Individual Services
+
+- **Frontend only:** `npm run dev --filter=frontend`
+- **API only:** `npm run dev --filter=api`
+- **Discord Bot only:** `npm run dev --filter=discord-bot`
+
+## Production Setup
+
+1. **Set up Azure resources** (AKS, ACR, Cosmos DB, Storage)
+2. **Configure environment variables and secrets**
+3. **Build and push Docker images**
+4. **Deploy to AKS using Kubernetes manifests**
+5. **Set up Discord bot and connect to your server**
+6. **Start building your campaign!**
 
 ---
 

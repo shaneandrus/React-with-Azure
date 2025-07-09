@@ -6,7 +6,19 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "dev:all": "turbo run dev --parallel",
+    "dev:smart": "node scripts/start-services.js",
+    "ports": "node scripts/port-manager.js",
+    "ports:status": "node scripts/port-manager.js status",
+    "ports:check": "node scripts/port-manager.js check",
+    "cleanup": "node scripts/process-manager.js cleanup",
+    "check": "node scripts/process-manager.js check",
+    "status": "node scripts/process-manager.js status",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "packageManager": "npm@9.6.7",
   "overrides": {
