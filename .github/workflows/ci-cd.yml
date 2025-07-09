@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository_owner }}/dnd-campaign-organizer
   NODE_OPTIONS: "--max-old-space-size=4096"
 
 jobs:
