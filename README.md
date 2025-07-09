@@ -124,16 +124,20 @@ type Mutation {
 
 ## Roadmap
 
-- [x] **1. Plan the Architecture**
-- [x] 2. Set Up Monorepo (Turborepo/Nx)
-- [x] 3. Scaffold Services (frontend, backend, bot, AI)
-- [ ] 4. Dockerize Each Service
-- [ ] 5. Write Kubernetes Manifests
-- [ ] 6. Set Up Azure Resources (AKS, ACR, Cosmos DB, Storage)
-- [ ] 7. Set Up CI/CD
-- [ ] 8. Implement Core Features
-- [ ] 9. Secure and Configure (Secrets, ConfigMaps, Auth)
-- [ ] 10. Test and Iterate
+- [x] **1. Plan the Architecture** ✅
+- [x] **2. Set Up Monorepo (Turborepo)** ✅
+- [x] **3. Scaffold Services (frontend, backend, bot)** ✅
+- [x] **4. Basic Discord Bot Integration** ✅
+- [x] **5. Process Management & Port Management** ✅
+- [x] **6. VS Code Development Environment** ✅
+- [x] **7. GraphQL API Setup** ✅
+- [ ] **8. Dockerize Each Service**
+- [ ] **9. Write Kubernetes Manifests**
+- [ ] **10. Set Up Azure Resources (AKS, ACR, Cosmos DB, Storage)**
+- [ ] **11. Set Up CI/CD**
+- [ ] **12. Implement Core D&D Features**
+- [ ] **13. Secure and Configure (Secrets, ConfigMaps, Auth)**
+- [ ] **14. Test and Iterate**
 
 ---
 
