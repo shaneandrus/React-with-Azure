@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - configmap.yaml
+  - secret.yaml
+  - frontend/
+  - api/
+  - discord-bot/
+
+commonLabels:
+  app: dnd-campaign-organizer
+  version: v1.0.0
+
+namespace: dnd-campaign-organizer 

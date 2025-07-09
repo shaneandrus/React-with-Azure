@@ -18,7 +18,14 @@
     "status": "node scripts/process-manager.js status",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down",
+    "docker:dev": "docker-compose -f docker-compose.dev.yml up",
+    "docker:dev:build": "docker-compose -f docker-compose.dev.yml build",
+    "docker:dev:down": "docker-compose -f docker-compose.dev.yml down",
+    "docker:clean": "docker system prune -f && docker volume prune -f"
   },
   "packageManager": "npm@9.6.7",
   "overrides": {
@@ -31,5 +38,8 @@
     "graphql": "^16.11.0",
     "graphql-playground-middleware-express": "^1.7.23",
     "graphql-tag": "^2.12.6"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4"
   }
 }

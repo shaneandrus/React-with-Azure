@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: dnd-campaign-organizer
+
+resources:
+  - ../../base
+
+configMapGenerator:
+  - name: dnd-app-config
+    behavior: merge
+    literals:
+      - NODE_ENV=production
+      - LOG_LEVEL=warn
+      - REACT_APP_API_URL=https://dnd-campaign-organizer.yourdomain.com/api
+
+images:
+  - name: dnd-campaign-organizer-frontend
+    newTag: v1.0.0
+  - name: dnd-campaign-organizer-api
+    newTag: v1.0.0
+  - name: dnd-campaign-organizer-discord-bot
+    newTag: v1.0.0 

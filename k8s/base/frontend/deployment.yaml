@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+    component: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+        component: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: dnd-campaign-organizer-frontend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5173
+          name: http
+        env:
+        - name: REACT_APP_API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: dnd-app-config
+              key: REACT_APP_API_URL
+        - name: REACT_APP_GRAPHQL_URL
+          valueFrom:
+            configMapKeyRef:
+              name: dnd-app-config
+              key: REACT_APP_GRAPHQL_URL
+        - name: NODE_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: dnd-app-config
+              key: NODE_ENV
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5173
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5173
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      imagePullSecrets:
+      - name: acr-secret 

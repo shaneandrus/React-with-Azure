@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # Frontend React App
+  frontend:
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - api
+    networks:
+      - dnd-network
+
+  # API Server
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+    networks:
+      - dnd-network
+
+  # Discord Bot
+  discord-bot:
+    build:
+      context: .
+      dockerfile: apps/discord-bot/Dockerfile
+    environment:
+      - NODE_ENV=production
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+    depends_on:
+      - api
+    networks:
+      - dnd-network
+    restart: unless-stopped
+
+networks:
+  dnd-network:
+    driver: bridge

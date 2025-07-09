@@ -64,7 +64,6 @@ async function cleanupDevProcesses() {
     console.log('🧹 Cleaning up development processes...\n');
 
     const processesToKill = [
-        'node.exe',
         'ts-node.exe',
         'nodemon.exe'
     ];
@@ -205,6 +204,14 @@ async function main() {
 
 // Run if called directly
 if (require.main === module) {
+    process.on('uncaughtException', (err) => {
+        console.error('Uncaught exception in cleanup:', err);
+        process.exit(0);
+    });
+    process.on('unhandledRejection', (reason) => {
+        console.error('Unhandled rejection in cleanup:', reason);
+        process.exit(0);
+    });
     main().catch(console.error);
 }
 

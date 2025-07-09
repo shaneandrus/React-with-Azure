@@ -131,10 +131,10 @@ type Mutation {
 - [x] **5. Process Management & Port Management** ✅
 - [x] **6. VS Code Development Environment** ✅
 - [x] **7. GraphQL API Setup** ✅
-- [ ] **8. Dockerize Each Service**
-- [ ] **9. Write Kubernetes Manifests**
-- [ ] **10. Set Up Azure Resources (AKS, ACR, Cosmos DB, Storage)**
-- [ ] **11. Set Up CI/CD**
+- [x] **8. Dockerize Each Service** ✅
+- [x] **9. Write Kubernetes Manifests** ✅
+- [x] **10. Set Up Azure Resources (AKS, ACR, Cosmos DB, Storage)** ✅
+- [x] **11. Set Up CI/CD** ✅
 - [ ] **12. Implement Core D&D Features**
 - [ ] **13. Secure and Configure (Secrets, ConfigMaps, Auth)**
 - [ ] **14. Test and Iterate**
@@ -152,6 +152,7 @@ type Mutation {
   /packages
     /shared        # Shared types, utils
   /infra           # IaC scripts for Azure
+  /k8s             # Kubernetes manifests
   README.md
   package.json
   turbo.json / nx.json

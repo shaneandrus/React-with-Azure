@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-bot
+  labels:
+    app: discord-bot
+    component: discord-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discord-bot
+  template:
+    metadata:
+      labels:
+        app: discord-bot
+        component: discord-bot
+    spec:
+      containers:
+      - name: discord-bot
+        image: dnd-campaign-organizer-discord-bot:latest
+        imagePullPolicy: Always
+        env:
+        - name: NODE_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: dnd-app-config
+              key: NODE_ENV
+        - name: DISCORD_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: dnd-app-secrets
+              key: DISCORD_TOKEN
+        - name: DISCORD_BOT_PREFIX
+          valueFrom:
+            configMapKeyRef:
+              name: dnd-app-config
+              key: DISCORD_BOT_PREFIX
+        - name: API_URL
+          value: "http://api-service:4000"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - "ps aux | grep node | grep -v grep"
+          initialDelaySeconds: 30
+          periodSeconds: 30
+        readinessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - "ps aux | grep node | grep -v grep"
+          initialDelaySeconds: 5
+          periodSeconds: 10
+      imagePullSecrets:
+      - name: acr-secret 

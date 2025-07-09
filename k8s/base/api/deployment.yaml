@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  labels:
+    app: api
+    component: api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+        component: api
+    spec:
+      containers:
+      - name: api
+        image: dnd-campaign-organizer-api:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4000
+          name: http
+        env:
+        - name: NODE_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: dnd-app-config
+              key: NODE_ENV
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: dnd-app-config
+              key: PORT
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: dnd-app-secrets
+              key: DATABASE_URL
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: dnd-app-secrets
+              key: JWT_SECRET
+        - name: AZURE_STORAGE_CONNECTION_STRING
+          valueFrom:
+            secretKeyRef:
+              name: dnd-app-secrets
+              key: AZURE_STORAGE_CONNECTION_STRING
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 4000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 4000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      imagePullSecrets:
+      - name: acr-secret 
