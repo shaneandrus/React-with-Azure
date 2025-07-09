@@ -1,0 +1,56 @@
+{
+    "services": {
+        "frontend": {
+            "name": "React Frontend",
+            "port": 5173,
+            "url": "http://localhost:5173",
+            "description": "Main React application"
+        },
+        "api": {
+            "name": "Node.js API Server",
+            "port": 4000,
+            "url": "http://localhost:4000",
+            "description": "Express/GraphQL API server"
+        },
+        "graphql": {
+            "name": "GraphQL Playground",
+            "port": 4000,
+            "url": "http://localhost:4000/graphql",
+            "description": "GraphQL playground for API testing"
+        },
+        "playground": {
+            "name": "GraphQL Playground",
+            "port": 4000,
+            "url": "http://localhost:4000/playground",
+            "description": "GraphQL playground interface"
+        },
+        "discord-bot": {
+            "name": "Discord Bot",
+            "port": null,
+            "url": null,
+            "description": "Discord bot service (no web interface)"
+        }
+    },
+    "development": {
+        "defaultPorts": {
+            "frontend": 5173,
+            "api": 4000
+        },
+        "fallbackPorts": {
+            "frontend": [
+                5174,
+                5175,
+                5176,
+                5177,
+                5178
+            ],
+            "api": [
+                4001,
+                4002,
+                4003,
+                4004,
+                4005
+            ]
+        }
+    }
+}
